@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if($source = "datasource/setthishere.json"){
+if($source == "datasource/setthishere.json"){
 	die("You need to change the name of the source file.");
 }
 
