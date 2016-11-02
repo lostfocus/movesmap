@@ -1,11 +1,17 @@
 <?php
-$source = "source/storyline_2016-10.json";
+// Set the name of the json file here
+$source = "datasource/setthishere.json";
 
 // here we go
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+if($source = "datasource/setthishere.json"){
+	die("You need to change the name of the source file.");
+}
+
 
 require_once("lib/point.php");
 require_once("lib/line.php");
