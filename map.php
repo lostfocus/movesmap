@@ -1,23 +1,32 @@
 <?php
-// Set the name of the json file here
-$source = "datasource/setthishere.json";
-
 // here we go
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if($source == "datasource/setthishere.json"){
-	die("You need to change the name of the source file.");
-}
+// show upload-form if no file is present
+if (empty($_FILES)) : ?>
 
+	<form action="map.php" method="POST" enctype="multipart/form-data">
+		<input type="file" name="sourcefile" />
+		<input type="submit" />
+	</form>
 
+<?php
+// and die, die, die my darling
+die();
+
+// get content of uploaded file
+else :
+	$source = file_get_contents($_FILES["sourcefile"]["tmp_name"]);
+endif;
+
+// draw map
 require_once("lib/point.php");
 require_once("lib/line.php");
 require_once("lib/map.php");
 
-$storyline = json_decode(file_get_contents($source));
+$storyline = json_decode($source);
 
 $lines = array();
 
