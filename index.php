@@ -7,8 +7,10 @@ error_reporting(E_ALL);
 // show upload-form if no file is present
 if (empty($_FILES)) : ?>
 
-	<form action="map.php" method="POST" enctype="multipart/form-data">
-		<input type="file" name="sourcefile" />
+	<form action="index.php" method="POST" enctype="multipart/form-data">
+		<label>Datafile: <input type="file" name="sourcefile" required /></label><br/>
+		<label>Width (px): <input type="number" value="1080" name="width" required /></label><br/>
+		<label>Height (px): <input type="number" value="1080" name="height" required /></label><br/>
 		<input type="submit" />
 	</form>
 
@@ -19,6 +21,8 @@ die();
 // get content of uploaded file
 else :
 	$source = file_get_contents($_FILES["sourcefile"]["tmp_name"]);
+	$width = $_POST['width'];
+	$height = $_POST['height'];
 endif;
 
 // draw map
@@ -66,4 +70,4 @@ foreach($lines as $line){
 // $map->setCenter($center);
 $map->getZoomFromBounds();
 
-$map->draw();
+$map->draw($width, $height);
