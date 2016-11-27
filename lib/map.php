@@ -64,12 +64,13 @@ class map
 	public function __construct()
 	{
 		$this->zoom = 15;
-		$this->width = 1080;
-		$this->height = 1080;
 	}
 
-	public function draw(){
+	public function draw($width, $height){
 		$this->_initCoordinates();
+
+		$this->width = $width;
+		$this->height = $height;
 
 		$this->image = imagecreatetruecolor($this->width, $this->height);
 
