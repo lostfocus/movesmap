@@ -61,16 +61,16 @@ class map
 
 	protected $maxLat, $maxLong, $minLat, $minLong;
 
-	public function __construct()
+	public function __construct($width = 1080, $height = 1080)
 	{
+		$this->width = $width;
+		$this->height = $height;
+
 		$this->zoom = 15;
 	}
 
-	public function draw($width, $height){
+	public function draw(){
 		$this->_initCoordinates();
-
-		$this->width = $width;
-		$this->height = $height;
 
 		$this->image = imagecreatetruecolor($this->width, $this->height);
 

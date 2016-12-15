@@ -60,7 +60,7 @@ foreach($storyline as $d){
 	}
 }
 
-$map = new \mapdraw\map();
+$map = new \mapdraw\map($width, $height);
 
 foreach($lines as $line){
 
@@ -70,4 +70,4 @@ foreach($lines as $line){
 // $map->setCenter($center);
 $map->getZoomFromBounds();
 
-$map->draw($width, $height);
+$map->draw();
