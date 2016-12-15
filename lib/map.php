@@ -61,11 +61,12 @@ class map
 
 	protected $maxLat, $maxLong, $minLat, $minLong;
 
-	public function __construct()
+	public function __construct($width = 1080, $height = 1080)
 	{
+		$this->width = $width;
+		$this->height = $height;
+
 		$this->zoom = 15;
-		$this->width = 1080;
-		$this->height = 1080;
 	}
 
 	public function draw(){
