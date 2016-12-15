@@ -197,14 +197,8 @@ class map
 	}
 
 	protected function _mkdir_recursive($pathname, $mode){
-		if(!is_dir(dirname($pathname))){
-			$this->_mkdir_recursive(dirname($pathname), $mode);
-		} else {
-			if(!is_dir($pathname)){
-				mkdir($pathname,$mode);
-			} else {
-				return true;
-			}
+		if(!is_dir($pathname)){
+			mkdir($pathname,$mode,true);
 		}
 	}
 
